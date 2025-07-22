@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <!-- HEADER -->
+    <app-header></app-header>
+
+    <div class="row flex-nowrap justify-content-between full-height">
+        <!-- LEFT SIDEBAR -->
+        <div class="col-md-3 col-xl-2 px-sm-2 px-0 bg-secondary">
+            <app-left-sidebar></app-left-sidebar>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="col py-5 main-content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
