@@ -8,7 +8,7 @@ export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'home', component: HomeComponent },
     { path: 'add',  component: AddEditComponent},
-    { path: '/taskList', component: TaskListComponent },
+    { path: 'taskList', component: TaskListComponent },
 
     { path: 'not-found', component: NotFoundComponent },
     { path: '**', redirectTo: 'not-found' }
