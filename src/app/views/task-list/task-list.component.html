@@ -1,13 +1,33 @@
-<p>task-list works!</p>
-<table id="products">
-  <tr>
-    <th>S/N</th>
-    <th>Name</th>
-    <th>Update</th>
-    <th>Delete</th>
-  </tr>
-  <tr *ngFor="let task of tasks">
-    <td>{{task.id}}</td>
-    <td>{{task.title}}</td>
-  </tr>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Category</th>
+      <th scope="col">Due Date</th>
+      <th scope="col">Priority</th>
+      <th scope="col">Completed</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.id }}</td>
+      <td>{{ task.title }}</td>
+      <td>{{ task.description }}</td>
+      <td>{{ task.category }}</td>
+      <td>{{ task.dueDate }}</td>
+      <td>{{ task.priority }}</td>
+      <td>{{ task.completed }}</td>
+      <td>
+        <button class="btn btn-sm btn-warning me-2" (click)="editTask(task.id)">
+          Edit
+        </button>
+        <button class="btn btn-sm btn-danger" (click)="deleteTask(task.id)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
 </table>
