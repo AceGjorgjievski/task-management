@@ -1,0 +1,14 @@
+.items {
+    margin-top: 4rem;
+}
+
+.nav-link {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.nav-link.active {
+  background-color: #ffffff22;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
