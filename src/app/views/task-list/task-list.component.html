@@ -1,1 +1,13 @@
 <p>task-list works!</p>
+<table id="products">
+  <tr>
+    <th>S/N</th>
+    <th>Name</th>
+    <th>Update</th>
+    <th>Delete</th>
+  </tr>
+  <tr *ngFor="let task of tasks">
+    <td>{{task.id}}</td>
+    <td>{{task.title}}</td>
+  </tr>
+</table>
