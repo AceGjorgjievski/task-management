@@ -26,7 +26,7 @@ export class TaskListComponent implements OnInit {
   }
 
   editTask(id: number) {
-    this.router.navigate(['/add'], { queryParams: { id } });
+    this.router.navigate([`/${id}/edit`]);
   }
 
   deleteTask(id: number) {

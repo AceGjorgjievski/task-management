@@ -1,1 +1,40 @@
-<p>add-edit works!</p>
+<form class="form">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input 
+      type="text" 
+      class="form-control" 
+      id="title" 
+      name="title"
+      [(ngModel)]="taskToEdit.title" 
+      placeholder="Task title" 
+      required
+    >
+  </div>
+  
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea 
+      class="form-control" 
+      id="description" 
+      name="description"
+      [(ngModel)]="taskToEdit.description" 
+      rows="3"
+    ></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="category">Select category</label>
+    <select 
+      class="form-control" 
+      id="category" 
+      name="category"
+      [(ngModel)]="taskToEdit.category"
+    >
+    <option value="" disabled selected *ngIf="!taskToEdit.category"></option>
+      <option *ngFor="let category of categories" [value]="category">
+        {{ category }}
+      </option>
+    </select>
+  </div>
+</form>
