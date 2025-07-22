@@ -1,17 +1,20 @@
 <div class="container-fluid">
   <div class="row flex-nowrap full-height">
-    <div class="col-md-3 col-xl-2 px-sm-2 px-0 bg-primary">
+    
+    <nav class="col-auto col-md-3 col-xl-2 px-0 bg-primary sidebar">
       <app-left-sidebar></app-left-sidebar>
-    </div>
+    </nav>
 
-    <div class="col py-0 d-flex flex-column content">
-     <div class="header">
-      <app-header></app-header>
-     </div>
+    <div class="col d-flex flex-column content px-0">
+      
+      <header class="header bg-light shadow-sm">
+        <app-header></app-header>
+      </header>
 
-      <div class="flex-grow-1 overflow-auto main-content">
+      <main class="main-content px-3">
         <router-outlet></router-outlet>
-      </div>
+      </main>
+
     </div>
   </div>
 </div>
