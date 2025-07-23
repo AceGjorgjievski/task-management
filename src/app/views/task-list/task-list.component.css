@@ -13,7 +13,13 @@ display: flex;
 }
 
 .alert {
-    margin-top: 5rem;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 15rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 td {
@@ -25,6 +31,11 @@ td {
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 4px;
+  white-space: nowrap;
+}
+
+.sort-icon {
+  margin-left: 0rem;
 }
 
 @media (max-width: 576px) {

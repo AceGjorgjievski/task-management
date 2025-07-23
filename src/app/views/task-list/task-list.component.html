@@ -14,13 +14,13 @@
           <tr>
             <th scope="col" (click)="sortTasks('id')" class="sortable">
               #
-              <span *ngIf="sortColumn === 'title'">
+              <span *ngIf="sortColumn === 'id'" class="sort-icon">
                   {{ sortDirection === 'asc' ? '↑' : '↓' }}
               </span>
             </th>
             <th scope="col" (click)="sortTasks('title')" class="sortable">
               Title
-              <span *ngIf="sortColumn === 'title'">
+              <span *ngIf="sortColumn === 'title'" class="sort-icon">
                   {{ sortDirection === 'asc' ? '↑' : '↓' }}
               </span>
             </th>
@@ -28,13 +28,13 @@
             <th scope="col">Category</th>
             <th scope="col" (click)="sortTasks('dueDate')" class="sortable">
               Due Date
-                <span *ngIf="sortColumn === 'dueDate'">
+                <span *ngIf="sortColumn === 'dueDate'" class="sort-icon">
                   {{ sortDirection === 'asc' ? '↑' : '↓' }}
                 </span>
             </th>
             <th scope="col" (click)="sortTasks('priority')" class="sortable">
               Priority
-              <span *ngIf="sortColumn === 'priority'">
+              <span *ngIf="sortColumn === 'priority'" class="sort-icon">
                   {{ sortDirection === 'asc' ? '↑' : '↓' }}
                 </span>
             </th>
