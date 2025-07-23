@@ -1,40 +1,73 @@
-<form class="form">
+<form class="form" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="title">Title</label>
-    <input 
-      type="text" 
-      class="form-control" 
-      id="title" 
+    <input
+      type="text"
+      class="form-control"
+      id="title"
       name="title"
-      [(ngModel)]="taskToEdit.title" 
-      placeholder="Task title" 
+      [(ngModel)]="task.title"
+      placeholder="Task title"
       required
-    >
+    />
   </div>
-  
+
   <div class="form-group">
     <label for="description">Description</label>
-    <textarea 
-      class="form-control" 
-      id="description" 
+    <textarea
+      class="form-control"
+      id="description"
       name="description"
-      [(ngModel)]="taskToEdit.description" 
+      placeholder="Enter Description"
+      [(ngModel)]="task.description"
       rows="3"
+      style="resize: none"
     ></textarea>
   </div>
 
   <div class="form-group">
     <label for="category">Select category</label>
-    <select 
-      class="form-control" 
-      id="category" 
+    <select
+      class="form-control"
+      id="category"
       name="category"
-      [(ngModel)]="taskToEdit.category"
+      [(ngModel)]="task.category"
     >
-    <option value="" disabled selected *ngIf="!taskToEdit.category"></option>
+      <option value="" disabled selected *ngIf="!task.category"></option>
       <option *ngFor="let category of categories" [value]="category">
         {{ category }}
       </option>
     </select>
+  </div>
+
+  <div class="form-group">
+    <label for="date">Select due date</label>
+    <input
+      type="date"
+      class="form-control"
+      id="dueDate"
+      name="dueDate"
+      [(ngModel)]="task.dueDate"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="category">Select priority</label>
+
+    <select
+      class="form-control"
+      id="priority"
+      name="priority"
+      [(ngModel)]="task.priority"
+    >
+      <option value="" disabled selected *ngIf="!task.priority"></option>
+      <option *ngFor="let priority of prioritiesArray" [value]="priority">
+        {{ priority }}
+      </option>
+    </select>
+  </div>
+  <div class="d-flex justify-content-between mt-3">
+    <button type="button" class="btn btn-secondary" (click)="onBack()">Back</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>
