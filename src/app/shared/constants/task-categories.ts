@@ -1,7 +1,8 @@
-export const TASK_CATEGORIES = [
-  'Work',
-  'Personal Development',
-  'Health & Fitness',
-  'Home & Family',
-  'Hobbies & Leisure',
-];
+export enum TaskCategories {
+  Work = 'Work',
+  Personal_Development = 'Personal Development',
+  Health_and_Fitness = 'Health & Fitness',
+  Home_and_Family = 'Home & Family',
+  Hobbies_and_Leisure = 'Hobbies & Leisure'
+}
+

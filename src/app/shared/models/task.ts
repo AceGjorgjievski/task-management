@@ -1,9 +1,12 @@
+import { Priorities } from "../constants/priorities";
+import { TaskCategories } from "../constants/task-categories";
+
 export interface Task {
   id: number;
   title: string;
   description: string;
-  category: string;
+  category: TaskCategories;
   dueDate: string;
-  priority: 'Low' | 'Medium' | 'High';
+  priority: Priorities;
   completed: boolean;
 }
