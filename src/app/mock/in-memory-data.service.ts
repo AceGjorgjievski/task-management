@@ -1,29 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../shared/models/task';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { TASK_CATEGORIES } from '../shared/constants/task-categories';
+import { TaskCategories } from '../shared/constants/task-categories';
+import { Priorities } from '../shared/constants/priorities';
 
 @Injectable({
   providedIn: 'root',
 })
 export class InMemoryDataService implements InMemoryDbService {
-  categories = TASK_CATEGORIES;
+  categories = Object.values(TaskCategories);
+  prioritiesArray = Object.values(Priorities);
+  tasks: Task[] = [];
+
   createDb() {
-    const tasks: Task[] = [];
 
     for (let i = 0; i < 5; i++) {
-      tasks.push({
+      this.tasks.push({
         id: i + 1,
         title: `Sample Task ${i + 1}`,
         description: `This is a description for task ${i + 1}.`,
         category: this.categories[i % this.categories.length],
         dueDate: `2025-07-${22 + i}`,
-        priority: ['Low', 'Medium', 'High'][i % 3] as 'Low' | 'Medium' | 'High',
-        completed: false,
+        priority: this.prioritiesArray[i % this.prioritiesArray.length],
+        completed: i % 2 === 0 ? true : false,
       });
     }
 
-    return { tasks };
+    return { tasks: this.tasks };
   }
 
   genId(tasks: Task[]): number {
