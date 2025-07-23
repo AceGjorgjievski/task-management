@@ -12,12 +12,32 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
+            <th scope="col" (click)="sortTasks('id')" class="sortable">
+              #
+              <span *ngIf="sortColumn === 'title'">
+                  {{ sortDirection === 'asc' ? '↑' : '↓' }}
+              </span>
+            </th>
+            <th scope="col" (click)="sortTasks('title')" class="sortable">
+              Title
+              <span *ngIf="sortColumn === 'title'">
+                  {{ sortDirection === 'asc' ? '↑' : '↓' }}
+              </span>
+            </th>
             <th scope="col">Description</th>
             <th scope="col">Category</th>
-            <th scope="col">Due Date</th>
-            <th scope="col">Priority</th>
+            <th scope="col" (click)="sortTasks('dueDate')" class="sortable">
+              Due Date
+                <span *ngIf="sortColumn === 'dueDate'">
+                  {{ sortDirection === 'asc' ? '↑' : '↓' }}
+                </span>
+            </th>
+            <th scope="col" (click)="sortTasks('priority')" class="sortable">
+              Priority
+              <span *ngIf="sortColumn === 'priority'">
+                  {{ sortDirection === 'asc' ? '↑' : '↓' }}
+                </span>
+            </th>
             <th scope="col">Completed</th>
             <th scope="col">Action</th>
           </tr>

@@ -21,6 +21,12 @@ td {
   white-space: normal;
 }
 
+.sortable {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 @media (max-width: 576px) {
     .add-button {
         margin-top: 2rem;
