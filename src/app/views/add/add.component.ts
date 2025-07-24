@@ -7,6 +7,8 @@ import { TaskCategories } from '../../shared/constants/task-categories';
 import { Priorities } from '../../shared/constants/priorities';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { noSpecialCharsValidator } from '../../shared/validators/custom-validators';
+import { FormUtils } from '../../shared/utils/form-utils';
 
 @Component({
   selector: 'app-add-task',
@@ -29,12 +31,12 @@ export class AddComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskForm = this.fb.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
+      title: ['', [Validators.required, noSpecialCharsValidator()]],
+      description: ['', [Validators.required, noSpecialCharsValidator()]],
       category: [this.categories[0], Validators.required],
       dueDate: ['', Validators.required],
       priority: [this.prioritiesArray[0], Validators.required],
-      completed: [false]
+      completed: [false],
     });
   }
 
@@ -52,5 +54,13 @@ export class AddComponent implements OnInit {
 
   onBack(): void {
     this.router.navigate(['/taskList']);
+  }
+
+  getErrors(controlName: string) {
+    return FormUtils.getErrors(this.taskForm.get(controlName));
+  }
+
+  getIsTouchedOrDirty(controlName: string) {
+    return FormUtils.isTouchedOrDirty(this.taskForm.get(controlName));
   }
 }

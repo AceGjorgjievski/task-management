@@ -2,11 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TaskService } from '../../shared/services/task.service';
 import { AlertService } from '../../shared/services/alert.service';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TaskCategories } from '../../shared/constants/task-categories';
 import { Priorities } from '../../shared/constants/priorities';
 import { Task } from '../../shared/models/task';
+import { noSpecialCharsValidator } from '../../shared/validators/custom-validators';
+import { FormUtils } from '../../shared/utils/form-utils';
 
 @Component({
   selector: 'app-edit-task',
@@ -45,12 +52,15 @@ export class EditComponent implements OnInit {
 
   buildForm(task: Task) {
     this.taskForm = this.fb.group({
-      title: [task.title, Validators.required],
-      description: [task.description, Validators.required],
+      title: [task.title, [Validators.required, noSpecialCharsValidator()]],
+      description: [
+        task.description,
+        [Validators.required, noSpecialCharsValidator()],
+      ],
       category: [task.category, Validators.required],
       dueDate: [task.dueDate, Validators.required],
       priority: [task.priority, Validators.required],
-      completed: [task.completed]
+      completed: [task.completed],
     });
   }
 
@@ -62,20 +72,28 @@ export class EditComponent implements OnInit {
 
     const updatedTask: Task = {
       id: this.taskId,
-      ...this.taskForm.value
+      ...this.taskForm.value,
     };
 
     this.taskService.updateTask(updatedTask).subscribe((result) => {
-    if (result) {
-      this.alertService.setSuccessMessage('Task has been updated!');
-      this.router.navigate(['/taskList']);
-    } else {
-      alert('Failed to update task.');
-    }
-  });
+      if (result) {
+        this.alertService.setSuccessMessage('Task has been updated!');
+        this.router.navigate(['/taskList']);
+      } else {
+        alert('Failed to update task.');
+      }
+    });
   }
 
   onBack(): void {
     this.router.navigate(['/taskList']);
+  }
+  
+  getErrors(controlName: string) {
+    return FormUtils.getErrors(this.taskForm.get(controlName));
+  }
+
+  getIsTouchedOrDirty(controlName: string) {
+    return FormUtils.isTouchedOrDirty(this.taskForm.get(controlName));
   }
 }

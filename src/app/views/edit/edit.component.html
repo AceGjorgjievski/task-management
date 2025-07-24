@@ -9,11 +9,21 @@
         id="title"
         maxlength="30"
         placeholder="Task title (max 30 chars)"
-        [class.is-invalid]="taskForm.get('title')?.invalid && taskForm.get('title')?.touched"
+        [class.is-invalid]="getErrors('title') && getIsTouchedOrDirty('title')"
         required
       />
-      <div class="invalid-feedback" *ngIf="taskForm.get('title')?.invalid && taskForm.get('title')?.touched">
+      <div
+        class="invalid-feedback"
+        *ngIf="getErrors('title')?.['required'] && getIsTouchedOrDirty('title')"
+      >
         Title is required.
+      </div>
+
+      <div
+        class="invalid-feedback"
+        *ngIf="getErrors('title')?.['noSpecialChars'] && getIsTouchedOrDirty('title')"
+      >
+        Only letters, numbers, and spaces are allowed.
       </div>
     </div>
 
@@ -27,11 +37,22 @@
         maxlength="200"
         style="resize: none"
         placeholder="Enter Description (max 200 chars)"
-        [class.is-invalid]="taskForm.get('description')?.invalid && taskForm.get('description')?.touched"
+        [class.is-invalid]="
+          getErrors('description') && getIsTouchedOrDirty('description')
+        "
         required="true"
       ></textarea>
-      <div class="invalid-feedback" *ngIf="taskForm.get('description')?.invalid && taskForm.get('description')?.touched">
+      <div
+        class="invalid-feedback"
+        *ngIf="getErrors('description')?.['required'] && getIsTouchedOrDirty('description')"
+      >
         Description is required.
+      </div>
+      <div
+        class="invalid-feedback"
+        *ngIf="getErrors('description')?.['noSpecialChars'] && getIsTouchedOrDirty('description')"
+      >
+        Only letters, numbers, and spaces are allowed.
       </div>
     </div>
 
@@ -51,9 +72,12 @@
         formControlName="dueDate"
         class="form-control"
         id="dueDate"
-        [class.is-invalid]="taskForm.get('dueDate')?.invalid && taskForm.get('dueDate')?.touched"
+        [class.is-invalid]="getErrors('dueDate')?.['required'] && getIsTouchedOrDirty('dueDate')"
       />
-      <div class="invalid-feedback" *ngIf="taskForm.get('dueDate')?.invalid && taskForm.get('dueDate')?.touched">
+      <div
+        class="invalid-feedback"
+        *ngIf="getErrors('dueDate')?.['required'] && getIsTouchedOrDirty('dueDate')"
+      >
         Due date is required.
       </div>
     </div>
