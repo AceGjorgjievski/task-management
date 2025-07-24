@@ -28,6 +28,7 @@ export class HeaderComponent {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.setTitle(event.urlAfterRedirects);
+        this.isCollapsed = true;
       });
   }
 
