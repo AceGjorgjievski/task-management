@@ -8,7 +8,7 @@
       name="title"
       maxlength="30"
       [(ngModel)]="task.title"
-      placeholder="Task title"
+      placeholder="Task title (max 30 chars)"
       required
     />
   </div>
@@ -19,7 +19,7 @@
       class="form-control"
       id="description"
       name="description"
-      placeholder="Enter Description"
+      placeholder="Enter Description (max 200 chars)"
       [(ngModel)]="task.description"
       rows="3"
       maxlength="200"
