@@ -10,5 +10,9 @@ To start the development server locally, do this:
 2. Navigate to the root folder: ``cd task-management``
 3. Run: ``npm install``
 4. Run: ``ng serve``
-5. Go to browser and open: [localhost:8080](http://localhost:8080)
+5. Go to browser and open: [localhost:4200](http://localhost:4200)
+
+*Note: Make sure ``Angular CLI`` is installed globally*
+- To check for the ``Angular CLI``, run :``ng version``
+- If you don't have that, then run: ``npm install -g @angular/cli``
 
