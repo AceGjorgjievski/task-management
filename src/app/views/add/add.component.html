@@ -10,8 +10,12 @@
         maxlength="30"
         placeholder="Task title (max 30 chars)"
         formControlName="title"
+        [class.is-invalid]="taskForm.get('title')?.invalid && taskForm.get('title')?.touched"
         required
       />
+      <div class="invalid-feedback" *ngIf="taskForm.get('title')?.invalid && taskForm.get('title')?.touched">
+        Title is required.
+      </div>
     </div>
 
     <div class="form-group">
@@ -25,7 +29,12 @@
         maxlength="200"
         style="resize: none"
         formControlName="description"
+        [class.is-invalid]="taskForm.get('description')?.invalid && taskForm.get('description')?.touched"
+        required
       ></textarea>
+        <div class="invalid-feedback" *ngIf="taskForm.get('description')?.invalid && taskForm.get('description')?.touched">
+            Description is required.
+        </div>
     </div>
 
     <div class="form-group">
@@ -56,7 +65,11 @@
         id="dueDate"
         name="dueDate"
         formControlName="dueDate"
+        [class.is-invalid]="taskForm.get('dueDate')?.invalid && taskForm.get('dueDate')?.touched"
       />
+      <div class="invalid-feedback" *ngIf="taskForm.get('dueDate')?.invalid && taskForm.get('dueDate')?.touched">
+        Due date is required.
+      </div>
     </div>
 
     <div class="form-group">
