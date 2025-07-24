@@ -45,8 +45,16 @@
         <tbody>
           <tr *ngFor="let task of tasks" (click)="goToDetails(task.id)">
             <td class="text-wrap">{{ task.id }}</td>
-            <td class="text-wrap">{{ task.title }}</td>
-            <td class="text-wrap">{{ task.description }}</td>
+            <td class="text-wrap">
+              <div class="truncate-title">
+                {{ task.title }}
+              </div>
+            </td>
+            <td class="text-wrap">
+              <div class="truncate-description">
+                {{ task.description }}
+              </div>
+            </td>
             <td class="text-wrap">{{ task.category }}</td>
             <td class="text-wrap">{{ task.dueDate }}</td>
             <td class="text-wrap">
