@@ -42,7 +42,6 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteTask(id: number) {
-    console.log("delete", id);
     this.taskService.deleteTask(id).subscribe(() => {
       this.tasks = this.tasks.filter(task => task.id !== id);
     });
@@ -86,5 +85,9 @@ export class TaskListComponent implements OnInit {
       if (aVal > bVal) return this.sortDirection === 'asc' ? 1 : -1;
       return 0;
     });
+  }
+
+  goToDetails(id: number) {
+    this.router.navigate(['/details', id]);
   }
 }

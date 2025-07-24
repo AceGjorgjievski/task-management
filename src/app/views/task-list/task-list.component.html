@@ -4,12 +4,12 @@
 <div>
   <div class="add-button">
     <a routerLink="/add" class="btn btn-warning">
-      <b>Add Post</b>
+      <b>+ Add Post</b>
     </a>
   </div>
   <div>
     <div class="table-responsive">
-      <table class="table">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col" (click)="sortTasks('id')" class="sortable">
@@ -36,20 +36,24 @@
               Priority
               <span *ngIf="sortColumn === 'priority'" class="sort-icon">
                   {{ sortDirection === 'asc' ? '↑' : '↓' }}
-                </span>
+              </span>
             </th>
             <th scope="col">Completed</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let task of tasks">
+          <tr *ngFor="let task of tasks" (click)="goToDetails(task.id)">
             <td class="text-wrap">{{ task.id }}</td>
             <td class="text-wrap">{{ task.title }}</td>
             <td class="text-wrap">{{ task.description }}</td>
             <td class="text-wrap">{{ task.category }}</td>
             <td class="text-wrap">{{ task.dueDate }}</td>
-            <td class="text-wrap">{{ task.priority }}</td>
+            <td class="text-wrap">
+              <span *ngIf="task.priority === 'Low'" class="priority-label low">Low</span>
+              <span *ngIf="task.priority === 'Medium'" class="priority-label medium">Medium</span>
+              <span *ngIf="task.priority === 'High'" class="priority-label high">High</span>
+            </td>
             <td>
               <input
                 type="checkbox"
@@ -60,13 +64,15 @@
             <td>
               <button
                 class="btn btn-sm btn-warning me-2"
-                (click)="editTask(task.id)"
+                (click)="editTask(task.id);
+                $event.stopPropagation()"
               >
                 Edit
               </button>
               <button
                 class="btn btn-sm btn-danger"
-                (click)="deleteTask(task.id)"
+                (click)="deleteTask(task.id);
+                $event.stopPropagation()"
               >
                 Delete
               </button>

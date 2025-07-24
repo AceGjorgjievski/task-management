@@ -27,6 +27,35 @@ td {
   white-space: normal;
 }
 
+.table tbody tr:hover {
+  cursor: pointer;
+}
+
+.priority-label {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  color: white;
+  font-weight: bold;
+  user-select: none;
+}
+
+.priority-label.low {
+  background-color: #28a745;
+}
+
+.priority-label.medium {
+  background-color: #ffc107;
+  color: black;
+}
+
+.priority-label.high {
+  background-color: #dc3545;
+}
+
+
 .sortable {
   cursor: pointer;
   text-decoration: underline;
