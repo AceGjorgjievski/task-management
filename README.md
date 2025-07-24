@@ -4,7 +4,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## Development server
 
-To start a local development server, run:
+To start the development server locally, do this:
 
 1. Clone this repository: ``git clone https://github.com/AceGjorgjievski/task-management.git``
 2. Navigate to the root folder: ``cd task-management``
