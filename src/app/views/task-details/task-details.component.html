@@ -1,0 +1,31 @@
+<div class="task-details-container" *ngIf="task; else loading">
+  <h2 class="task-title">{{ task.title }}</h2>
+
+  <div class="task-meta">
+    <div><strong>Category:</strong> {{ task.category }}</div>
+    <div><strong>Due Date:</strong> {{ task.dueDate | date }}</div>
+    <div>
+      <strong>Priority:</strong>
+      <span class="priority-label" [ngClass]="task.priority.toLowerCase()">
+        {{ task.priority }}
+      </span>
+    </div>
+    <div>
+      <strong>Status:</strong>
+      <span [class.completed]="task.completed">{{ task.completed ? 'Completed' : 'Pending' }}</span>
+    </div>
+  </div>
+
+  <div class="task-description">
+    <strong>Description:</strong>
+    <p>{{ task.description }}</p>
+  </div>
+
+  <div class="task-actions">
+    <button class="btn btn-secondary" routerLink="/taskList">Back</button>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="loading-message">Loading task details...</div>
+</ng-template>
