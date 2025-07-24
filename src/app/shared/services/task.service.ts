@@ -21,7 +21,8 @@ export class TaskService {
     return new Observable((observer) => {
       this.getTasks().subscribe((tasks) => {
         const foundTask = tasks.find((task) => task.id === id);
-        return of(foundTask);
+        observer.next(foundTask);
+        observer.complete();
       })
     })
   }
