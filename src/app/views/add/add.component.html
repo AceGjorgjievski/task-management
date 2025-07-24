@@ -1,0 +1,75 @@
+<form class="form" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      name="title"
+      maxlength="30"
+      placeholder="Task title (max 30 chars)"
+      formControlName="title"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea
+      class="form-control"
+      id="description"
+      name="description"
+      placeholder="Enter Description (max 200 chars)"
+      rows="3"
+      maxlength="200"
+      style="resize: none"
+      formControlName="description"
+    ></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="category">Select category</label>
+    <select
+      class="form-control"
+      id="category"
+      name="category"
+      formControlName="category"
+    >
+      <option value="" disabled selected *ngIf="!taskForm.get('category')?.value"></option>
+      <option *ngFor="let category of categories" [value]="category">
+        {{ category }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="date">Select due date</label>
+    <input
+      type="date"
+      class="form-control"
+      id="dueDate"
+      name="dueDate"
+      formControlName="dueDate"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="category">Select priority</label>
+
+    <select
+      class="form-control"
+      id="priority"
+      name="priority"
+      formControlName="priority"
+    >
+      <option value="" disabled selected *ngIf="!taskForm.get('priority')?.value"></option>
+      <option *ngFor="let priority of prioritiesArray" [value]="priority">
+        {{ priority }}
+      </option>
+    </select>
+  </div>
+  <div class="d-flex justify-content-between mt-3">
+    <button type="button" class="btn btn-secondary" (click)="onBack()">Back</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
