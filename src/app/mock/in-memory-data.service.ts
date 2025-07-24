@@ -18,7 +18,7 @@ export class InMemoryDataService implements InMemoryDbService {
       this.tasks.push({
         id: i + 1,
         title: `Sample Task ${i + 1}`,
-        description: `This is a description for task ${i + 1}.`,
+        description: `This is a sample description for the task with numeros ${i + 1}.`,
         category: this.categories[i % this.categories.length],
         dueDate: `2025-07-${22 + i}`,
         priority: this.prioritiesArray[i % this.prioritiesArray.length],
