@@ -17,13 +17,16 @@
   margin-bottom: 0.5rem;
 }
 
+.task-meta div span {
+    margin-left: 0.8rem;
+}
+
 .priority-label {
   padding: 4px 10px;
   border-radius: 12px;
   font-weight: bold;
   color: white;
   font-size: 0.8rem;
-  margin-left: 0.8rem;
 }
 
 .priority-label.low {

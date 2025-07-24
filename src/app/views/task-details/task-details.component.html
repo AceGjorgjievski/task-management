@@ -2,8 +2,16 @@
   <h2 class="task-title">{{ task.title }}</h2>
 
   <div class="task-meta">
-    <div><strong>Category:</strong> {{ task.category }}</div>
-    <div><strong>Due Date:</strong> {{ task.dueDate | date }}</div>
+    <div><strong>Category:</strong>
+        <span>
+         {{ task.category }}
+        </span>
+    </div>
+    <div><strong>Due Date:</strong>
+        <span>
+            {{ task.dueDate | date }}            
+        </span>
+    </div>
     <div>
       <strong>Priority:</strong>
       <span class="priority-label" [ngClass]="task.priority.toLowerCase()">
