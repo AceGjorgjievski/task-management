@@ -1,0 +1,11 @@
+.form-edit-container {
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-top: 3rem;
+}
+
+div form div {
+    margin-top: 1rem;
+}
