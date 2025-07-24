@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, NavigationEnd, RouterLink, RouterModule } from '@angular/router';
+import { Router, NavigationEnd, RouterLink, RouterModule, RouterLinkActive } from '@angular/router';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { filter } from 'rxjs/operators';
 
@@ -8,6 +8,7 @@ import { filter } from 'rxjs/operators';
   imports: [
     NgbCollapseModule,
     RouterLink,
+    RouterLinkActive,
     RouterModule
   ],
   templateUrl: './header.component.html',
