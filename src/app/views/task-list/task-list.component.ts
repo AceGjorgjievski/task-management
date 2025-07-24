@@ -88,6 +88,6 @@ export class TaskListComponent implements OnInit {
   }
 
   goToDetails(id: number) {
-    this.router.navigate(['/details', id]);
+    this.router.navigate([`/${id}/details`]);
   }
 }
